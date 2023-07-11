@@ -9,6 +9,9 @@ This project aims to develop a system for the management and control of projects
 ### Screenshot
 ![Screenshot_3](https://github.com/EdgarJoel123/proyectoDP/assets/73723298/75d76b67-fd30-48f9-847c-7d0bacd926ed)
 
+![Screenshot_1](https://github.com/EdgarJoel123/proyectoDP/assets/73723298/0eb6d9ae-00d9-42c1-8d0b-76400da14b72)
+
+
 ## 📊 Technologies
 
 ***A list of technologies used within the project:
