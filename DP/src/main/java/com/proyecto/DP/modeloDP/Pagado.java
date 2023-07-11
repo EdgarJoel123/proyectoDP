@@ -1,0 +1,135 @@
+package com.proyecto.DP.modeloDP;
+
+public class Pagado {
+
+    /*Atributos de la entidad pagado*/
+    private float PPAG_ACTIVIDAD_ENERO;
+    private float PPAG_ACTIVIDAD_NOVIEMBRE;
+    private float PPAG_ACTIVIDAD_DICIEMBRE;
+    private float PPAG_ACTIVIDAD_OCTUBRE;
+    private float PPAG_ACTIVIDAD_SEPTIEMBRE;
+    private float PPAG_ACTIVIDAD_JULIO;
+    private float PPAG_ACTIVIDAD_JUNIO;
+    private float PPAG_ACTIVIDAD_MAYO;
+    private float PPAG_ACTIVIDAD_ABRIL;
+    private float PPAG_ACTIVIDAD_MARZO;
+    private float PPAG_ACTIVIDAD_FEBRERO;
+    private int FK_PER_CODIGO_UNICO;
+
+    /*Constructor con parmetros de la entidad*/
+    public Pagado(float PPAG_ACTIVIDAD_ENERO, float PPAG_ACTIVIDAD_NOVIEMBRE, float PPAG_ACTIVIDAD_DICIEMBRE, float PPAG_ACTIVIDAD_OCTUBRE, float PPAG_ACTIVIDAD_SEPTIEMBRE, float PPAG_ACTIVIDAD_JULIO, float PPAG_ACTIVIDAD_JUNIO, float PPAG_ACTIVIDAD_MAYO, float PPAG_ACTIVIDAD_ABRIL, float PPAG_ACTIVIDAD_MARZO, float PPAG_ACTIVIDAD_FEBRERO, int FK_PER_CODIGO_UNICO) {
+        this.PPAG_ACTIVIDAD_ENERO = PPAG_ACTIVIDAD_ENERO;
+        this.PPAG_ACTIVIDAD_NOVIEMBRE = PPAG_ACTIVIDAD_NOVIEMBRE;
+        this.PPAG_ACTIVIDAD_DICIEMBRE = PPAG_ACTIVIDAD_DICIEMBRE;
+        this.PPAG_ACTIVIDAD_OCTUBRE = PPAG_ACTIVIDAD_OCTUBRE;
+        this.PPAG_ACTIVIDAD_SEPTIEMBRE = PPAG_ACTIVIDAD_SEPTIEMBRE;
+        this.PPAG_ACTIVIDAD_JULIO = PPAG_ACTIVIDAD_JULIO;
+        this.PPAG_ACTIVIDAD_JUNIO = PPAG_ACTIVIDAD_JUNIO;
+        this.PPAG_ACTIVIDAD_MAYO = PPAG_ACTIVIDAD_MAYO;
+        this.PPAG_ACTIVIDAD_ABRIL = PPAG_ACTIVIDAD_ABRIL;
+        this.PPAG_ACTIVIDAD_MARZO = PPAG_ACTIVIDAD_MARZO;
+        this.PPAG_ACTIVIDAD_FEBRERO = PPAG_ACTIVIDAD_FEBRERO;
+        this.FK_PER_CODIGO_UNICO = FK_PER_CODIGO_UNICO;
+    }
+
+    /*Constructo vacio de la entidad*/
+    public Pagado() {
+    }
+
+    /*GET and SET de la entidad*/
+    public float getPPAG_ACTIVIDAD_ENERO() {
+        return PPAG_ACTIVIDAD_ENERO;
+    }
+
+    public void setPPAG_ACTIVIDAD_ENERO(float PPAG_ACTIVIDAD_ENERO) {
+        this.PPAG_ACTIVIDAD_ENERO = PPAG_ACTIVIDAD_ENERO;
+    }
+
+    public float getPPAG_ACTIVIDAD_NOVIEMBRE() {
+        return PPAG_ACTIVIDAD_NOVIEMBRE;
+    }
+
+    public void setPPAG_ACTIVIDAD_NOVIEMBRE(float PPAG_ACTIVIDAD_NOVIEMBRE) {
+        this.PPAG_ACTIVIDAD_NOVIEMBRE = PPAG_ACTIVIDAD_NOVIEMBRE;
+    }
+
+    public float getPPAG_ACTIVIDAD_DICIEMBRE() {
+        return PPAG_ACTIVIDAD_DICIEMBRE;
+    }
+
+    public void setPPAG_ACTIVIDAD_DICIEMBRE(float PPAG_ACTIVIDAD_DICIEMBRE) {
+        this.PPAG_ACTIVIDAD_DICIEMBRE = PPAG_ACTIVIDAD_DICIEMBRE;
+    }
+
+    public float getPPAG_ACTIVIDAD_OCTUBRE() {
+        return PPAG_ACTIVIDAD_OCTUBRE;
+    }
+
+    public void setPPAG_ACTIVIDAD_OCTUBRE(float PPAG_ACTIVIDAD_OCTUBRE) {
+        this.PPAG_ACTIVIDAD_OCTUBRE = PPAG_ACTIVIDAD_OCTUBRE;
+    }
+
+    public float getPPAG_ACTIVIDAD_SEPTIEMBRE() {
+        return PPAG_ACTIVIDAD_SEPTIEMBRE;
+    }
+
+    public void setPPAG_ACTIVIDAD_SEPTIEMBRE(float PPAG_ACTIVIDAD_SEPTIEMBRE) {
+        this.PPAG_ACTIVIDAD_SEPTIEMBRE = PPAG_ACTIVIDAD_SEPTIEMBRE;
+    }
+
+    public float getPPAG_ACTIVIDAD_JULIO() {
+        return PPAG_ACTIVIDAD_JULIO;
+    }
+
+    public void setPPAG_ACTIVIDAD_JULIO(float PPAG_ACTIVIDAD_JULIO) {
+        this.PPAG_ACTIVIDAD_JULIO = PPAG_ACTIVIDAD_JULIO;
+    }
+
+    public float getPPAG_ACTIVIDAD_JUNIO() {
+        return PPAG_ACTIVIDAD_JUNIO;
+    }
+
+    public void setPPAG_ACTIVIDAD_JUNIO(float PPAG_ACTIVIDAD_JUNIO) {
+        this.PPAG_ACTIVIDAD_JUNIO = PPAG_ACTIVIDAD_JUNIO;
+    }
+
+    public float getPPAG_ACTIVIDAD_MAYO() {
+        return PPAG_ACTIVIDAD_MAYO;
+    }
+
+    public void setPPAG_ACTIVIDAD_MAYO(float PPAG_ACTIVIDAD_MAYO) {
+        this.PPAG_ACTIVIDAD_MAYO = PPAG_ACTIVIDAD_MAYO;
+    }
+
+    public float getPPAG_ACTIVIDAD_ABRIL() {
+        return PPAG_ACTIVIDAD_ABRIL;
+    }
+
+    public void setPPAG_ACTIVIDAD_ABRIL(float PPAG_ACTIVIDAD_ABRIL) {
+        this.PPAG_ACTIVIDAD_ABRIL = PPAG_ACTIVIDAD_ABRIL;
+    }
+
+    public float getPPAG_ACTIVIDAD_MARZO() {
+        return PPAG_ACTIVIDAD_MARZO;
+    }
+
+    public void setPPAG_ACTIVIDAD_MARZO(float PPAG_ACTIVIDAD_MARZO) {
+        this.PPAG_ACTIVIDAD_MARZO = PPAG_ACTIVIDAD_MARZO;
+    }
+
+    public float getPPAG_ACTIVIDAD_FEBRERO() {
+        return PPAG_ACTIVIDAD_FEBRERO;
+    }
+
+    public void setPPAG_ACTIVIDAD_FEBRERO(float PPAG_ACTIVIDAD_FEBRERO) {
+        this.PPAG_ACTIVIDAD_FEBRERO = PPAG_ACTIVIDAD_FEBRERO;
+    }
+
+    public int getFK_PER_CODIGO_UNICO() {
+        return FK_PER_CODIGO_UNICO;
+    }
+
+    public void setFK_PER_CODIGO_UNICO(int FK_PER_CODIGO_UNICO) {
+        this.FK_PER_CODIGO_UNICO = FK_PER_CODIGO_UNICO;
+    }
+}
