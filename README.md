@@ -1,49 +1,33 @@
-# ProyectosDP
+## Table of Contents
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+4. [Collaboration](#collaboration)
+### 📝 General Info
+***
+This project aims to develop a system for the management and control of projects in EEASA's Planning Department. The project can be accessed at https://app.eeasa.com.ec/proyectoDP/login. Currently, the project is in pre-production stage, where design and processing errors are being addressed.
+### Screenshot
+![Screenshot_3](https://github.com/EdgarJoel123/proyectoDP/assets/73723298/75d76b67-fd30-48f9-847c-7d0bacd926ed)
 
-This project was generated with Angular CLI version 16.0.5.
+## 📊 Technologies
 
-Once the repository is cloned, navigate into the project directory using cd ProyectosDP.
-Deploying the frontend
-If you need to deploy the frontend part of the project to the web server, follow these steps:
+***A list of technologies used within the project:
+* [Angular CLI](https://example.com](https://angular.io/cli)): Version 16.0.1
+* [Node](https://example.com](https://nodejs.org/en)): Version 18.16.0
+* [Sprint Boot](https://spring.io/projects/spring-boot): Version 2.7
+* Oracle: version 19c
+## 💻 Installation
+***
+A little intro about the installation. 
+```
+$ git clone https://github.com/EdgarJoel123/proyectoDP.git
+$ cd ../path/to/the/file
+$ npm install
+$ ng serve
 
-After building the project using ng build, the build artifacts will be stored in the dist/ directory.
-Copy the contents of the dist/ directory to your web server's folder, e.g., public_html.
-Access the deployed project at: https://app.eeasa.com.ec/proyectoDP/login.
-Please note that the deployed project is currently undergoing design and processing improvements.
-
-Project Description
-This project is created for the management and control of drag and drop projects as well as new projects for the EEASA (Department of Planning) department. It is currently in pre-production, undergoing design and processing error corrections.
-
-
-## Development server
-
-1. Run `ng serve` for a development server.
-2. Navigate to `http://localhost:4200/`.
-3. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via Karma.
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Cloning the repository
-
-To clone this repository, follow these steps:
-
-1. Open your terminal.
-2. Change the current working directory to the location where you want the cloned directory to be saved.
-3. Run the following command:
-
-```bash
-git clone https://github.com/your-username/ProyectosDP.git
+```
+## Collaboration
+***
+To collaborate with this project, I would appreciate help with the design aspect using styling libraries.
+> It should go over several rows?
+> This is how you do it.
