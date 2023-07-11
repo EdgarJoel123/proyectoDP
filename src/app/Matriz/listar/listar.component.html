@@ -1,0 +1,835 @@
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class="text-uppercase text-center h1" style="color: #192A67;">Listado de <strong>Proyectos de Arrastres</strong></p>
+
+
+<div class="d-inline-block">
+
+
+        <div class="px-3 py-3">
+
+                <div class="input-container">
+                        <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Buscar"
+                                        [(ngModel)]="palabraBusqueda" #inputPalabraBusqueda
+                                        (input)="convertirMayuscula(); buscarPalabra(palabraBusqueda)">
+                        </div>
+                        <div class="contador-resultados">
+                                <div class="contador-cuadro">{{ contadorResultados }}</div>
+                                <div class="contador-texto">resultados</div>
+                        </div>
+
+                        <div class="my-form-container">
+                                <div class="col-md-5">
+                                        <div class="input-group-btn d-inline-block">
+
+                                                <button (click)="limpiar(formulario, inputPalabraBusqueda)"
+                                                        class="btn btn-outline-info my-btn-success"
+                                                        type="submit">Limpiar</button>
+
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                <div class="form-container">
+                        <form #formulario="ngForm" class="row g-3 needs-validation" novalidate>
+
+
+
+
+                                <div class="col-md-10">
+                                        <button (click)="listarTodos()" class="btn btn-outline-info my-btn"
+                                                type="submit">Listar
+                                                Todos los Proyectos Existentes</button>
+                                </div>
+                        </form>
+                </div>
+
+
+
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+
+                <div class="card">
+                    
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-left">
+                                  <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons="false"
+                                    previousPageLabel="Anterior" nextPageLabel="Siguiente"
+                                    itemsPerPageLabel="Resultados por página" aria-label="Seleccionar cantidad de resultados por página">
+                                  </mat-paginator>
+                                </div>
+                              </div>
+                              
+                        <div class="card-body">
+                                <div  class="container" class="table-responsive-sm">
+
+
+                                        <table class="table" *ngIf="resultadosBusqueda" class="table table-striped table-hover">
+
+                                                <thead class="thead-green">
+                                                        <tr class="table-primary">
+                                                                <th> </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CODIGO ÚNICO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pk_PPRO_CODIGO_UNICO', 'asc')"
+                                                                                                class="icon-button">
+                                                                                                <i
+                                                                                                        class="bi bi-arrow-up-circle"></i>
+                                                                                        </button>
+                                                                                        <button (click)="ordenar('pk_PPRO_CODIGO_UNICO', 'desc')"
+                                                                                                class="icon-button">
+
+                                                                                                <i
+                                                                                                        class="bi bi-arrow-down-circle"></i>
+                                                                                        </button>
+                                                                                </div>
+                                                                        </div>
+                                                                </th>
+
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CODIGO RAPIDO</span>
+                                                                                </div>
+
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CODIGO_RAPIDO', 'asc')"
+                                                                                                class="icon-button">
+                                                                                                <i
+                                                                                                        class="bi bi-arrow-up-circle"></i>
+                                                                                        </button>
+                                                                                        <button (click)="ordenar('ppro_CODIGO_RAPIDO', 'desc')"
+                                                                                                class="icon-button">
+                                                                                                <i
+                                                                                                        class="bi bi-arrow-down-circle"></i>
+                                                                                        </button>
+                                                                                </div>
+                                                                        </div>
+
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PRESUPUESTO INICIAL</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_PRESUPUESTO_INICIAL', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_PRESUPUESTO_INICIAL', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PRESUPUESTO CODIFICADO
+                                                                                        </span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_PRESUPUESTO_CODIFICADO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_PRESUPUESTO_CODIFICADO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>ETAPA
+                                                                                                PRESUPUESTARIA</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('petapre_ETAPA_PRESUPUESTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('petapre_ETAPA_PRESUPUESTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>AÑO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_ANIO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_ANIO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap" class="text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PARTIDA
+                                                                                                PRESUPUESTARIA</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppapre_PARTIDA_PRESUPUESTARIA', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppapre_PARTIDA_PRESUPUESTARIA', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span> CÓDIGO CATEGORÍA
+                                                                                                CPC</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CODIGO_CATEGORIA_CPC', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CODIGO_CATEGORIA_CPC', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>TIPO COMPRA</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ptico_TIPO_COMPRA', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ptico_TIPO_COMPRA', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PROCEDIMIENTO
+                                                                                                SERCOP</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pprse_PROCEDIMIENTO_SERCOP', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('pprse_PROCEDIMIENTO_SERCOP', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>DETALLE DEL PRODUCTO
+                                                                                                (Descripción de la
+                                                                                                contratación)</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_DETALLE_PRODUCTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_DETALLE_PRODUCTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span> CANTIDAD ANUAL</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CANTIDAD_ANUAL', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CANTIDAD_ANUAL', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span> UNIDAD </span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('puni_UNIDAD', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('puni_UNIDAD', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>COSTO UNITARIO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_COSTO_UNITARIO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_COSTO_UNITARIO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CUATRIMESTRE 1</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N1', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N1', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CUATRIMESTRE 2</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N2', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N2', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CUATRIMESTRE 3</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N3', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CUATRIMESTRE_N3', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>TIPO DE PRODUCTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ptipo_TIPO_PRODUCTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ptipo_TIPO_PRODUCTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CATÁLOGO
+                                                                                                ELECTRÓNICO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CATALOGO_ELECTRONICO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CATALOGO_ELECTRONICO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>FONDOS BID</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_FONDOS_BID', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_FONDOS_BID', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>NÚMERO CÓDIGO DE OPERACIÓN
+                                                                                                DEL PRÉSTAMO
+                                                                                                BID</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CODIGO_OPERACION_P', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CODIGO_OPERACION_P', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+
+                                                                </th>
+                                                                <th class="text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>NÚMERO CÓDIGO DE PROYECTO
+                                                                                                BID</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CODIGO_PROYECTO_BI', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CODIGO_PROYECTO_BI', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>TIPO DE RÉGIMEN</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ptire_TIPO_REGIMEN', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ptire_TIPO_REGIMEN', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>TIPO DE PRESUPUESTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ptipre_TIPO_PRESUPUESTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ptipre_TIPO_PRESUPUESTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>TIPO PROYECTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ptipro_TIPO_PROYECTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ptipro_TIPO_PROYECTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>DEPARTAMENTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pde_DEPARTAMENTO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('pde_DEPARTAMENTO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>RESPONSABLE TECNICO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('prete_NOMBRE', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('prete_APELLIDO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PLAZO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_PLAZO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_PLAZO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>VALOR DEVENGADO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pvade_VALOR_DEVENGADO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('pvade_VALOR_DEVENGADO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>VD FECHA</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pvade_FECHA_VD', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('pvade_FECHA_VD', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>VD OBSERVACIÓNES</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('pvade_OBSERVACIONES_VD', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('pvade_OBSERVACIONES_VD', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PORCENTAJE AVANCE
+                                                                                                FÍSCO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppoavfide_PORCENTAJE_AVANCE_FI', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppoavfide_PORCENTAJE_AVANCE_FI', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>PA FECHA</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppavfide_FECHA_PA', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppavfide_FECHA_PA', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span> PA OBSERVACIÓNES</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppavfide_OBSERVACIONES_PA', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppavfide_OBSERVACIONES_PA', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>OBSERVACIÓNES</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_OBSERVACIONES', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_OBSERVACIONES', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>FECHA INICIAL
+                                                                                                PROYECTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+
+                                                                                        <button (click)="ordenar('ppro_FECHA_INICIAL', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_FECHA_INICIAL', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>FECHA FINAL
+                                                                                                PROYECTO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_FECHA_FINAL', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_FECHA_FINAL', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span> NÚMERO CONTRATO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CONTRATO', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_NUMERO_CONTRATO', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>CODIGO SERCOP</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('ppro_CODIGO_SERCOP', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('ppro_CODIGO_SERCOP', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                                <th class="text-nowrap text-center">
+                                                                        <div class="content-wrapper">
+                                                                                <div class="text-container">
+                                                                                        <span>ESTADO</span>
+                                                                                </div>
+                                                                                <div class="button-container">
+                                                                                        <button (click)="ordenar('estado', 'asc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-up-circle"></i></button>
+                                                                                        <button (click)="ordenar('estado', 'desc')"
+                                                                                                class="icon-button"><i
+                                                                                                        class="bi bi-arrow-down-circle"></i></button>
+                                                                                                </div>
+                                                                                        </div>
+                
+                                                                </th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr *ngFor="let matriz of matrises of resultadosBusqueda"
+                                                                class="text-center">
+                                                                <td>
+
+                                                                        <button mat-button [matMenuTriggerFor]="menu"
+                                                                                class="btn btn-lg btn-warning"><i
+                                                                                        class="fa fa-pencil"></i></button>
+                                                                        <mat-menu #menu="matMenu">
+                                                                                <button mat-menu-item
+                                                                                        (click)="EditarMatriz(matriz)">Editar
+                                                                                        Matriz General</button>
+                                                                                <button mat-menu-item
+                                                                                        (click)="EditarMatrizFisico(matriz)">Editar
+                                                                                        Avance
+                                                                                        Fisico </button>
+                                                                                <button mat-menu-item
+                                                                                        (click)="EditarMatrizPresupuestario(matriz)">Editar
+                                                                                        Avance
+                                                                                        Presupuestario </button>
+                                                                                <button mat-menu-item
+                                                                                        (click)="EditarMatrizCertificado(matriz)">Editar
+                                                                                        Avance
+                                                                                        Certificado </button>
+                                                                                <button mat-menu-item
+                                                                                        (click)="EditarMatrizPagado(matriz)">Editar
+                                                                                        Avance
+                                                                                        Pagado </button>
+                                                                        </mat-menu>
+
+
+
+                                                                </td>
+                                                                <td>{{matriz.pk_PPRO_CODIGO_UNICO}}</td>
+                                                                <td>{{matriz.ppro_CODIGO_RAPIDO}}</td>
+                                                                <td>{{matriz.ppro_PRESUPUESTO_INICIAL}}</td>
+                                                                <td>{{matriz.ppro_PRESUPUESTO_CODIFICADO}}</td>
+                                                                <td>{{matriz.petapre_ETAPA_PRESUPUESTO}}</td>
+                                                                <td>{{matriz.ppro_ANIO}}</td>
+                                                                <td>{{matriz.ppapre_PARTIDA_PRESUPUESTARIA}}</td>
+                                                                <td>{{matriz.ppro_CODIGO_CATEGORIA_CPC}}</td>
+                                                                <td>{{matriz.ptico_TIPO_COMPRA}}</td>
+                                                                <td>{{matriz.pprse_PROCEDIMIENTO_SERCOP}}</td>
+                                                                <td>{{matriz.ppro_DETALLE_PRODUCTO}}</td>
+                                                                <td>{{matriz.ppro_CANTIDAD_ANUAL}}</td>
+                                                                <td>{{matriz.puni_UNIDAD}}</td>
+                                                                <td>${{matriz.ppro_COSTO_UNITARIO}}</td>
+                                                                <td>{{matriz.ppro_CUATRIMESTRE_N1}}</td>
+                                                                <td>{{matriz.ppro_CUATRIMESTRE_N2}}</td>
+                                                                <td>{{matriz.ppro_CUATRIMESTRE_N3}}</td>
+                                                                <td>{{matriz.ptipo_TIPO_PRODUCTO}}</td>
+                                                                <td>{{matriz.ppro_CATALOGO_ELECTRONICO}}</td>
+                                                                <td>{{matriz.ppro_FONDOS_BID}}</td>
+                                                                <td>{{matriz.ppro_NUMERO_CODIGO_OPERACION_P}}</td>
+                                                                <td>{{matriz.ppro_NUMERO_CODIGO_PROYECTO_BI}}</td>
+                                                                <td>{{matriz.ptire_TIPO_REGIMEN}}</td>
+                                                                <td>{{matriz.ptipre_TIPO_PRESUPUESTO}}</td>
+                                                                <td>{{matriz.ptipro_TIPO_PROYECTO}}</td>
+                                                                <td>{{matriz.pde_DEPARTAMENTO}}</td>
+                                                                <td class="text-nowrap">{{matriz.prete_NOMBRE}}
+                                                                        {{matriz.prete_APELLIDO}}</td>
+                                                                <td>{{matriz.ppro_PLAZO}}</td>
+                                                                <td>{{matriz.pvade_VALOR_DEVENGADO}}</td>
+                                                                <td>{{matriz.pvade_FECHA_VA}}</td>
+                                                                <td>{{matriz.pvade_OBSERVACIONES_VA}}</td>
+                                                                <td>{{matriz.ppoavfide_PORCENTAJE_AVANCE_FI}}%</td>
+                                                                <td>{{matriz.ppoavfide_FECHA_PA}}</td>
+                                                                <td>{{matriz. ppoavfide_OBSERVACIONES_PA}}</td>
+                                                                <td class="text-nowrap">{{matriz.ppro_OBSERVACIONES}}
+                                                                </td>
+                                                                <td>{{matriz.ppro_FECHA_INICIAL}}</td>
+                                                                <td>{{matriz.ppro_FECHA_FINAL}}</td>
+                                                                <td>{{matriz.ppro_NUMERO_CONTRATO}}</td>
+                                                                <td>{{matriz.ppro_CODIGO_SERCOP}}</td>
+                                                                <td class="text-nowrap">{{matriz.estado}}</td>
+
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+
+
+
+
+                                </div>
+                        </div>
+                </div>
+        </div>

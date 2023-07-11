@@ -1,0 +1,26 @@
+.modal-dialog {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .modal-header {
+    background-color: #192A67;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  .modal-body {
+    text-align: center;
+    padding: 20px;
+  }
+  .modal-footer {
+    text-align: center;
+    padding: 20px;
+  }
+  .btn-primary {
+    background-color: #192A67;
+    border-color: #192A67;
+  }
+  .btn-primary:hover {
+    background-color: #fff;
+    color: #192A67;
+  }

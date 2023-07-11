@@ -1,0 +1,99 @@
+<div class="container">
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+    <p class="text-uppercase text-center h1" style="color: #192A67;">Formulario para Actualizar el <strong>Avance Presupuestario</strong></p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="" class="form-label" style="font-weight: bold;">CODIGO UNICO </label>
+            <input matInput type="number" class="form-control" name="codigoUnico" [(ngModel)]="codigoUnico" disabled>
+
+            <div id="emailHelp" class="form-text">Este es un codigo de referencia</div>
+        </div>
+
+        <div class="mb-3 col">
+            <label for="" class="form-label" style="font-weight: bold;">PARTIDA PRESUPUESTARIA</label>
+            <input matInput type="text" class="form-control" name="codigoUnico"
+                [(ngModel)]="ppapre_PARTIDA_PRESUPUESTARIA" disabled>
+
+            <div id="emailHelp" class="form-text">Esta es la partida Presupuestaria del proyecto</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD ENERO 2023 </label>
+            <input matInput type="number" class="form-control" name="anio" [(ngModel)]="ppres_ACTIVIDAD_ENERO" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD FEBRERO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_FEBRERO" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD MARZO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_MARZO" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD ABRIL 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_ABRIL" required>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD MAYO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_MAYO" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD JUNIO 2023</label>
+            <input matInput type="number" class="form-control" id="DETALLE" [(ngModel)]="ppres_ACTIVIDAD_JUNIO" required>
+        </div>
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD JULIO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_JULIO" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD AGOSTO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_AGOSTO" required>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD SEPTIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_SEPTIEMBRE" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD OCTUBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_OCTUBRE" required>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD NOVIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_NOVIEMBRE" required>
+
+        </div>
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD DICIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppres_ACTIVIDAD_DICIEMBRE">
+
+        </div>
+    </div>
+    <button (click)="ActualizarPresupuesto(matriz)" class="btn btn-editar btn-primary btn-lg rounded-pill shadow-sm px-4">
+        <span class="fw-bold">Editar</span>
+    </button>
+</div>

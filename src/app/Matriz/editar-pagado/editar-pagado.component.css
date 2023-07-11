@@ -1,0 +1,18 @@
+.btn-editar {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border-color: #062a50; /* Color del borde del botón */
+    border-radius: 25px; /* Redondear las esquinas del botón */
+  }
+  
+  .btn-editar:hover {
+    background-color: #6b87a5; /* Color de fondo del botón al pasar el mouse sobre él */
+    border-color: #0062cc; /* Color del borde del botón al pasar el mouse sobre él */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Agregar efecto de sombra al botón al pasar el mouse sobre él */
+  }
+  
+  .btn-editar:active {
+    background-color: #021a33; /* Color de fondo del botón al hacer clic en él */
+    border-color: #062a52; /* Color del borde del botón al hacer clic en él */
+  }
+  

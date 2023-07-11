@@ -1,0 +1,316 @@
+<div class="container">
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+    <p class="text-uppercase text-center h1" style="color: #192A67;">Formulario para Actualizar los <strong>Datos
+            Generales de la Matriz de Proyectos Atrasados</strong></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="" class="form-label" style="font-weight: bold;">CODIGO UNICO</label>
+
+            <input type="text" class="form-control" name="codigoUnico" aria-describedby="emailHelp"
+                [(ngModel)]="codigoUnico" disabled>
+
+            <div id="emailHelp" class="form-text">Este es un codigo de referencia</div>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CODIGO RAPIDO</label>
+            <input type="text" class="form-control" name="anio" (input)="onInput()" (keypress)="onKeyPress10($event)"
+                [(ngModel)]="ppro_CODIGO_RAPIDO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">AÑO</label>
+            <input type="text" class="form-control" name="anio" [(ngModel)]="anio" pattern="[0-9]{4}"
+                title="El año debe tener 4 dígitos numéricos" (keypress)="onKeyPress($event)" (keyup)="onYearChange()">
+
+        </div>
+
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PARTIDA PRESUPUESTARIA</label>
+            <textarea type="text" class="form-control" (input)="onInput()" (keypress)="onKeyPress11($event)"
+                [(ngModel)]="ppapre_PARTIDA_PRESUPUESTARIA">
+            </textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ETAPA PRESUPUESTO</label>
+            <select class="form-control" id="exampleInputEmail1" [(ngModel)]="petapre_ETAPA_PRESUPUESTO"
+                (change)="mostrarSeleccionEtapaPresuesto()">
+                <option *ngFor="let matriz of matrices1" [value]="matriz.pk_PETAPRE_ID">
+                    {{matriz.petapre_ETAPA_PRESUPUESTO}}</option>
+            </select>
+
+
+
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PRESUPUESTO INICIAL</label>
+            <input matInput type="number" class="form-control" [(ngModel)]="ppro_PRESUPUESTO_INICIAL">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PRESUPUESTO CODIFICADO</label>
+            <input matInput type="number" class="form-control" [(ngModel)]="ppro_PRESUPUESTO_CODIFICADO">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CODIGO DE CATEGORÍA
+                CPC</label>
+            <input matInput type="number" class="form-control" [(ngModel)]="ppro_CODIGO_CATEGORIA_CPC">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIPO COMPRA (Bien, obras,
+                servicio o
+                consultoría)</label>
+            <select class="form-control" [(ngModel)]="ptico_TIPO_COMPRA">
+                <option *ngFor="let matriz of matrices2" [value]="matriz.pk_PTICO_ID">{{matriz.ptico_TIPO_COMPRA}}
+                </option>
+
+
+            </select>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PROCEDIMIENTO SERCOP (son los
+                procedimientos de
+                contratación)</label>
+            <select class="form-control" [(ngModel)]="pprse_PROCEDIMIENTO_SERCOP">
+                <option *ngFor="let matriz of matrices3" [value]="matriz.pk_PPRSE_ID">
+                    {{matriz.pprse_PROCEDIMIENTO_SERCOP}}</option>
+
+            </select>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">DETALLE DEL PRODUCTO
+                (Descripción de la contratación)</label>
+            <textarea class="form-control" id="DETALLE" (input)="onInput()" (keypress)="onKeyPress8($event)" (keypress)="convertToUpperCase($event)"
+                [(ngModel)]="ppro_DETALLE_PRODUCTO"></textarea>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CANTIDAD ANUAL</label>
+            <input type="text" class="form-control" (input)="onInput()" (keypress)="onKeyPress2($event)"
+                [(ngModel)]="ppro_CANTIDAD_ANUAL">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">UNIDAD (metro, litro
+                etc)</label>
+            <select class="form-control" [(ngModel)]="puni_UNIDAD">
+                <option *ngFor="let matriz of matrices9" [value]="matriz.pk_PUNI_ID">{{matriz.puni_UNIDAD}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">COSTO UNITARIO (Dólares SN
+                IVA)</label>
+            <input matInput type="number" class="form-control" [(ngModel)]="ppro_COSTO_UNITARIO">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CUATRIMESTRE 1 (marcar con una
+                S en el cuatrimestre
+                que va a contratar)</label>
+            <input type="text" class="form-control" (input)="onInput()" id="exampleInputEmail1"
+                [(ngModel)]="ppro_CUATRIMESTRE_N1" (keypress)="onKeyPress1($event)" maxlength="1">
+
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CUATRIMESTRE 2 (marcar con una
+                S en el cuatrimestre
+                que va a contratar)</label>
+            <input type="text" class="form-control" (input)="onInput()" id="exampleInputEmail1"
+                [(ngModel)]="ppro_CUATRIMESTRE_N2" (keypress)="onKeyPress1($event)" maxlength="1">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CUATRIMESTRE 3 (marcar con una
+                S en el cuatrimestre
+                que va a contratar)</label>
+            <input type="text" class="form-control" (input)="onInput()" id="exampleInputEmail1"
+                [(ngModel)]="ppro_CUATRIMESTRE_N3" (keypress)="onKeyPress1($event)" maxlength="1">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIPO DE PRODUCTO (Normalizado
+                / No
+                Normalizado)</label>
+            <select class="form-control" [(ngModel)]="ptipo_TIPO_PRODUCTO">
+                <option *ngFor="let matriz of matrices4" [value]="matriz.pk_PTIPO_ID">{{matriz.ptipo_TIPO_PRODUCTO}}
+                </option>
+
+            </select>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CATÁLOGO ELECTRÓNICO
+                (S/N)</label>
+            <select class="form-control" id="exampleInputEmail1" [(ngModel)]="ppro_CATALOGO_ELECTRONICO">
+                <option value="S">S</option>
+                <option value="N">N</option>
+            </select>
+
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">FONDOS BID (S/N)</label>
+            <select type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="ppro_FONDOS_BID">
+                <option value="S">S</option>
+                <option value="N">N</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">NÚMERO CÓDIGO DE OPERACIÓN DEL
+                PRÉSTAMO BID</label>
+            <input type="text" class="form-control" (input)="onInput1()" (keypress)="onKeyPress3($event)"
+                [(ngModel)]="ppro_NUMERO_CODIGO_OPERACION_P">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">NÚMERO CÓDIGO DE PROYECTO
+                BID</label>
+            <input type="text" class="form-control" (input)="onInput1()" (keypress)="onKeyPress4($event)"
+                [(ngModel)]="ppro_NUMERO_CODIGO_PROYECTO_BI">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIPO DE RÉGIMEN (común,
+                especial)</label>
+            <select class="form-control" [(ngModel)]="ptire_TIPO_REGIMEN">
+                <option *ngFor="let matriz of matrices5" [value]="matriz.pk_PTIRE_ID">{{matriz.ptire_TIPO_REGIMEN}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIPO DE PRESUPUESTO (proyecto
+                de inverSón, gasto
+                corriente)</label>
+            <select class="form-control" [(ngModel)]="ptipre_TIPO_PRESUPUESTO">
+                <option *ngFor="let matriz of matrices6" [value]="matriz.pk_PTIPRE_ID">
+                    {{matriz.ptipre_TIPO_PRESUPUESTO}}</option>
+            </select>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIPO PROYECTO (NUEVO,
+                ARRASTRE)</label>
+            <select class="form-control" [(ngModel)]="ptipro_TIPO_PROYECTO">
+                <option *ngFor="let matriz of matrices7" [value]="matriz.pk_PTIPRO_ID">{{matriz.ptipro_TIPO_PROYECTO}}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">DEPARTAMENTO</label>
+            <select class="form-control" [(ngModel)]="pde_DEPARTAMENTO">
+                <option *ngFor="let matriz of matrices8" [value]="matriz.pk_PDE_DMEOR_CODIGO">
+                    {{matriz.pde_DEPARTAMENTO}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">RESPONSABLE TÉCNICO</label>
+            <input type="text" class="form-control" [(ngModel)]="prete_NOMBRE_APELLIDO" disabled>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">TIEMPO TOTAL DEL PROYECTO
+                ESTIMADO EN DÍAS</label>
+            <input matInput type="number" class="form-control" [(ngModel)]="ppro_PLAZO">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">VALOR DEVENGADO A LA
+                FECHA(dolares SN IVA)</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pvade_VALOR_DEVENGADO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">VALOR DEVENGADO FECHA</label>
+            <input type="date" class="form-control" [(ngModel)]="pvade_FECHA_VD" disabled>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">VALOR DEVENGADO
+                OBSERVACIONES</label>
+            <textarea type="text" class="form-control" (input)="onInput()" (keypress)="convertToUpperCase($event)"
+                (keypress)="onKeyPress5($event)" [(ngModel)]="pvade_OBSERVACIONES_VD">
+            </textarea>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PORCENTAJE AVANCE FÍSCO
+                DEVENGADO A LA FECHA</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="ppoavfide_PORCENTAJE_AVANCE_FI">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PORCENTAJE AVANCE
+                FECHA</label>
+            <input type="date" class="form-control" [(ngModel)]="ppavfide_FECHA_PA" disabled>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">PORCENTAJE AVANCE
+                OBSERVACIONES</label>
+            <textarea type="text" class="form-control" (input)="onInput()" (keypress)="convertToUpperCase($event)"
+                (keypress)="onKeyPress6($event)" [(ngModel)]="ppavfide_OBSERVACIONES_PA">
+            </textarea>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">OBSERVACIONES</label>
+            <textarea class="form-control" id="DETALLE" (input)="onInput()" (keypress)="convertToUpperCase($event)"
+                (keypress)="onKeyPress5($event)" [(ngModel)]="ppro_OBSERVACIONES"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">FECHA INICIAL PROYECTO</label>
+            <input type="date" class="form-control" [(ngModel)]="ppro_FECHA_INICIAL">
+
+
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">FECHA FiNAL PROYECTO</label>
+            <input type="date" class="form-control" [(ngModel)]="ppro_FECHA_FINAL">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">NUMERO DE CONTRATO</label>
+            <textarea type="text" class="form-control" (input)="onInput1()" (keypress)="onKeyPress9($event)" (keypress)="convertToUpperCase($event)"
+                [(ngModel)]="ppro_NUMERO_CONTRATO">
+            </textarea>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">CODIGO SERCOP</label>
+            <textarea type="text" class="form-control" (input)="onInput1()" (keypress)="onKeyPress12($event)" (keypress)="convertToUpperCase($event)"
+                [(ngModel)]="ppro_CODIGO_SERCOP">
+            </textarea>
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ESTADO</label>
+            <input type="text" class="form-control" [(ngModel)]="estado" disabled>
+        </div>
+    </div>
+    <button (click)="ActualizadorCompleto(matriz)"
+        class="btn btn-editar btn-primary btn-lg rounded-pill shadow-sm px-4">
+        <span class="fw-bold">Editar</span>
+    </button>
+</div>

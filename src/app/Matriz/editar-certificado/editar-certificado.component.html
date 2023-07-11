@@ -1,0 +1,98 @@
+<div class="container">
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+    <p class="text-uppercase text-center h1" style="color: #192A67;">Formulario para Actualizar el <strong>Avance Certificado</strong></p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="" class="form-label" style="font-weight: bold;">CODIGO UNICO </label>
+            <input matInput type="number" class="form-control" name="codigoUnico" [(ngModel)]="codigoUnico" disabled>
+
+            <div id="emailHelp" class="form-text">Este es un codigo de referencia</div>
+        </div>
+
+        <div class="mb-3 col">
+            <label for="" class="form-label" style="font-weight: bold;">PARTIDA PRESUPUESTARIA</label>
+            <input matInput type="text" class="form-control" name="codigoUnico"
+                [(ngModel)]="ppapre_PARTIDA_PRESUPUESTARIA" disabled>
+
+            <div id="emailHelp" class="form-text">Esta es la partida Presupuestaria del proyecto</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD ENERO 2023 </label>
+            <input matInput type="number" class="form-control" name="anio" [(ngModel)]="pcer_ACTIVIDAD_ENERO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD FEBRERO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_FEBRERO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD MARZO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_MARZO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD ABRIL 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_ABRIL">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD MAYO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_MAYO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD JUNIO 2023</label>
+            <input matInput type="number" class="form-control" id="DETALLE" [(ngModel)]="pcer_ACTIVIDAD_JUNIO">
+        </div>
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD JULIO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_JULIO">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD AGOSTO 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_AGOSTO">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD SEPTIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_SEPTIEMBRE">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD OCTUBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_OCTUBRE">
+        </div>
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD NOVIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_NOVIEMBRE">
+
+        </div>
+
+        <div class="mb-3 col">
+            <label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">ACTIVIDAD DICIEMBRE 2023</label>
+            <input matInput type="number" class="form-control" id="exampleInputEmail1"
+                [(ngModel)]="pcer_ACTIVIDAD_DICIEMBRE">
+
+        </div>
+    </div>
+    <button (click)="ActualizarCertificado(matriz)" class="btn btn-editar btn-primary btn-lg rounded-pill shadow-sm px-4">
+        <span class="fw-bold">Editar</span>
+    </button>
+</div>
