@@ -5,7 +5,7 @@
 4. [Collaboration](#collaboration)
 ### 📝 General Info
 ***
-This project aims to develop a system for the management and control of projects in EEASA's Planning Department. The project can be accessed at https://app.eeasa.com.ec/proyectoDP/login. Currently, the project is in pre-production stage, where design and processing errors are being addressed.
+This project aims to develop a system for the management and control of projects in EEASA's Planning Department. The project can be accessed at https://app.eeasa.com.ec/proyectoDP/login . Currently, the project is in pre-production stage, where design and processing errors are being addressed.
 ### Screenshot
 ![Screenshot_3](https://github.com/EdgarJoel123/proyectoDP/assets/73723298/75d76b67-fd30-48f9-847c-7d0bacd926ed)
 
